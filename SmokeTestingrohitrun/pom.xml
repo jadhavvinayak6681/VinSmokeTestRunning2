@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.selenium.SmokeTesting</groupId>
+  <artifactId>SmokeTesting</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.beust</groupId>
+      <artifactId>jcommander</artifactId>
+      <version>1.48</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.beanshell/bsh -->
+<dependency>
+    <groupId>org.beanshell</groupId>
+    <artifactId>bsh</artifactId>
+    <version>2.0b4</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.beanshell/bsh-core -->
+<dependency>
+    <groupId>org.beanshell</groupId>
+    <artifactId>bsh-core</artifactId>
+    <version>2.0b4</version>
+</dependency>
+  
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>1.12</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>1.4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.10-FINAL</version>
+    </dependency>
+    <dependency>
+      <groupId>com.profesorfalken</groupId>
+      <artifactId>jPowerShell</artifactId>
+      <version>1.8</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.dine11101</groupId>
+      <artifactId>sikuli</artifactId>
+      <version>0.0.2</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="SmokeTesting">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="D:/sts-bundle/sts-bundle/sts-3.6.2.RELEASE/"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="TestNG.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}plugins/org.testng.eclipse_6.10.0.201612030230/lib/testng.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/org.testng.eclipse_6.10.0.201612030230/lib/jcommander.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/org.testng.eclipse_6.10.0.201612030230/lib/bsh-2.0b4.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/org.testng.eclipse_6.10.0.201612030230/lib/snakeyaml.jar"/>
+    </path>
+    <path id="SmokeTesting.classpath">
+        <pathelement location="bin"/>
+        <path refid="TestNG.libraryclasspath"/>
+        <pathelement location="D:/Selenium/Data/JarFiles/ATUTestRecorder_2.1.jar"/>
+        <pathelement location="D:/Selenium/Data/JarFiles/java-mail-1.4.4.jar"/>
+        <pathelement location="D:/Selenium/Data/JarFiles/jxl.jar"/>
+        <pathelement location="D:/Selenium/Data/JarFiles/poi-3.10-FINAL.jar"/>
+        <pathelement location="D:/Selenium/Data/JarFiles/selenium-server-standalone-2.53.1.jar"/>
+        <pathelement location="D:/Selenium/Jar Files/jPowerShell-1.8.jar"/>
+        <pathelement location="D:/Selenium/Jar Files/sqljdbc41.jar"/>
+        <pathelement location="D:/Selenium/Data/CDA/sikuli-java.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="SmokeTesting.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="SmokeTesting (1)">
+        <java classname="SmokeTesting.SmokeTesting" failonerror="true" fork="yes">
+            <classpath refid="SmokeTesting.classpath"/>
+        </java>
+    </target>
+    <target name="SmokeTesting (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <classpath refid="SmokeTesting.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>

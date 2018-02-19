@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="319769" started-at="2018-02-12T07:14:21Z" finished-at="2018-02-12T07:19:40Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="319769" started-at="2018-02-12T07:14:21Z" finished-at="2018-02-12T07:19:40Z">
+      <class name="SmokeTesting.SmokeTesting">
+        <test-method status="PASS" signature="InitializeForTesting()[pri:0, instance:SmokeTesting.SmokeTesting@3c0ecd4b]" name="InitializeForTesting" is-config="true" duration-ms="6377" started-at="2018-02-12T12:44:21Z" finished-at="2018-02-12T12:44:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- InitializeForTesting -->
+        <test-method status="PASS" signature="ProceedWithTesting()[pri:0, instance:SmokeTesting.SmokeTesting@3c0ecd4b]" name="ProceedWithTesting" duration-ms="311487" started-at="2018-02-12T12:44:27Z" finished-at="2018-02-12T12:49:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ProceedWithTesting -->
+        <test-method status="PASS" signature="CloseAfterTesting()[pri:0, instance:SmokeTesting.SmokeTesting@3c0ecd4b]" name="CloseAfterTesting" is-config="true" duration-ms="1886" started-at="2018-02-12T12:49:39Z" finished-at="2018-02-12T12:49:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseAfterTesting -->
+      </class> <!-- SmokeTesting.SmokeTesting -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<project default="main" basedir=".">
+
+<echo message="pulling in property files"/>
+<property file="axis_bujava.properties"/>
+	
+<echo message="calling the web services generation ant task: axis_bujava"/>
+ <target name="main" >
+ 	<zip destfile="splusSmokeTesting.jar">
+ 	    <zipgroupfileset dir="../lib" includes="*.jar" excludes="*.MF"/>
+ 	   <fileset dir="../bin"/>
+ 	</zip>
+  </target>
+  
+</project>
