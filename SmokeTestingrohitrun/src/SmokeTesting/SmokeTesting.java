@@ -451,6 +451,7 @@ public class SmokeTesting {
 										ReportFunctions.ReportTestCaseResult(bw, Constants._PASS);
 											}
 									break;
+
 								case "VerifyFail": // Verifying a particular text value which is not present
 									if (LocatorFunctions.CheckTextPresent(driver, sLocatorType,sIdentification,sControlValue.trim()) == false) {
 										String sActVerify = UtilityFunctions.captureScreen(driver,sScreenShotPath);
@@ -461,6 +462,13 @@ public class SmokeTesting {
 										System.out.println("Expected Text '" + sControlValue + "' Found...: ");
 										ReportFunctions.ReportTestCaseResult(bw, Constants._FAIL);
 									}
+									break;
+// @Vianayak : Code to take current date and add number of days from excel and enter in date field ddmmyyyy
+									//Note : for current date enter 0 in excel sheet
+								case "EntercurrentDateplusonfield": //@vinayak : code for entering current date on focus
+									driver.manage().timeouts().implicitlyWait(iTimeoutValue, TimeUnit.SECONDS);
+									LocatorFunctions.Enterdate(driver, sLocatorType,sIdentification,sControlValue);
+									ReportFunctions.ReportTestCaseResult(bw, Constants._PASSFAIL);
 									break;
 								case "VerifyPartial": // Verifying a Partial value
 									if (LocatorFunctions.CheckPartialTextPresent(driver, sLocatorType,sIdentification,sControlValue.trim()) == false) {
