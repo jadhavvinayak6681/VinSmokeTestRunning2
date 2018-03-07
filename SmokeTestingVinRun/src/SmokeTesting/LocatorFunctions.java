@@ -220,6 +220,70 @@ public class LocatorFunctions {
 		}
 	}
 	
+	
+	// @Vianayak : Code to take current date and add number of days from excel and enter in date field ddmmyyyy
+	//Note : for current date enter 0 in excel sheet
+	public static void Enterdate(WebDriver driver, String sLocatorType,String sIdentification,String sControlValue){
+		
+		try {
+	        int d = Integer.parseInt(sControlValue);
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			Calendar c = Calendar.getInstance();
+			c.setTime(new Date()); // Now use today date.
+			c.add(Calendar.DATE, d); // Adding days from excel
+			String output = sdf.format(c.getTime());
+			System.out.println(output);  
+			switch (sLocatorType) {
+			case "ID":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.id(sIdentification)).clear();
+				driver.findElement(By.id(sIdentification)).sendKeys(output);
+				break;
+			case "NAME":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.name(sIdentification)).clear();
+				driver.findElement(By.name(sIdentification)).sendKeys(output);
+				break;
+			case "XPATH":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.xpath(sIdentification)).clear();
+				driver.findElement(By.xpath(sIdentification)).sendKeys(output);
+				break;
+			case "LINKTEXT":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.linkText(sIdentification)).clear();
+				driver.findElement(By.linkText(sIdentification)).sendKeys(output);
+				break;
+			case "PARTLINKTEXT":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.partialLinkText(sIdentification)).clear();
+				driver.findElement(By.partialLinkText(sIdentification)).sendKeys(output);
+				break;
+			case "CSSPATH":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.cssSelector(sIdentification)).clear();
+				driver.findElement(By.cssSelector(sIdentification)).sendKeys(output);
+				break;
+			case "CLASS":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.className(sIdentification)).clear();
+				driver.findElement(By.className(sIdentification)).sendKeys(output);
+				break;
+			case "TAGNAME":
+				ControlToWaitForElement(driver,sLocatorType,sIdentification);
+				driver.findElement(By.tagName(sIdentification)).sendKeys(output);
+				break;
+			}
+			Constants._PASSFAIL = "Pass";
+		}
+		catch(NoSuchElementException ex)
+		{
+			Constants._PASSFAIL = "Fail";
+			System.out.println(ex.getMessage()+"******* in NoSuchElementException exceptin **********");
+		}
+	}
+	
+
 	// @Vianayak : Generate Random number through code and Inputting generated Random number in text filed
 	public static void ControlforRandom(WebDriver driver, String sLocatorType,String sIdentification,String sGetInputValue,String sKeyword) {
 		// generate random number and enter in text field
